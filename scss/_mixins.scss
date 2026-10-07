@@ -65,3 +65,11 @@
     backdrop-filter: blur(18px) saturate(1.5);
   }
 }
+
+// Compact desktop: xl up to (not incl.) 1440px — laptops where the full
+// desktop layout starts but horizontal room is still tight.
+@mixin compact {
+  @media (min-width: map.get($bp, xl)) and (max-width: 1439px) {
+    @content;
+  }
+}

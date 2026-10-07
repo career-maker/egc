@@ -36,6 +36,11 @@ html {
 }
 
 html {
+  // Smaller desktops (1200-1439px): render like a 90% browser zoom. Bigger
+  // screens are untouched.
+  @include compact {
+    zoom: 0.9;
+  }
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
   scroll-padding-top: $header-h;

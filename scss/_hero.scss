@@ -19,6 +19,10 @@
   @include up(xl) {
     min-height: clamp(720px, 100svh, 980px);
   }
+  @include compact {
+    // html is zoomed 0.9 here; svh is not, so compensate
+    min-height: clamp(720px, calc(100svh / 0.9), 980px);
+  }
 
   // ---- photo ----
   &__media {
@@ -294,6 +298,9 @@
     @include up(xl) {
       padding-inline: space(6);
     }
+    @include compact {
+      padding-inline: space(3);
+    }
   }
 
   &__list {
@@ -346,6 +353,13 @@
     color: $navy-900;
     transition: color $dur ease;
     @include focus-ring;
+    // laptops: keep every service name on one line
+    @include compact {
+      gap: space(2);
+      padding: space(3) 8px;
+      font-size: 0.8125rem;
+      letter-spacing: -0.02em;
+    }
 
     // blue wash rises from the bottom
     &::before {
@@ -381,6 +395,10 @@
     place-items: center;
     width: 40px;
     height: 40px;
+    @include compact {
+      width: 32px;
+      height: 32px;
+    }
     border-radius: 12px;
     background: $blue-50;
     color: $blue-600;
